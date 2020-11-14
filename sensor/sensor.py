@@ -35,7 +35,7 @@ class AQIValue(Enum):
     @staticmethod
     def interpret(value):
         for e in AQIValue:
-            if e.value <= value:
+            if value <= e.value:
                 return e
 
 
@@ -359,7 +359,6 @@ class Sensor:
         if not self.is_ready():
             raise Exception("Not ready")
         data = self._get(SOUND_DATA_READ, SOUND_DATA_BYTES)
-        print(data)
         return {
             'SPL_dBA': data.single(unsigned(1, 1)),
             **Sensor._read_sound_bands(data, flatten),
