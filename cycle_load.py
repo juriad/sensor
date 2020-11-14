@@ -5,7 +5,7 @@ from sensor.sensor import Sensor, CycleInterval
 
 
 def main():
-    with sqlite3.connect('metriful.db') as con:
+    with sqlite3.connect('metriful.db', isolation_level=None) as con:
         db = Database(con)
 
         with Sensor() as sensor:
