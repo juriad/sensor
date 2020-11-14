@@ -55,10 +55,10 @@ class Database:
                 values.get('G_ohm'),
 
                 values.get('AQI'),
-                Db.enum_name(values.get('AQI_value')),
+                Database.enum_name(values.get('AQI_value')),
                 values.get('CO2e'),
                 values.get('bVOC'),
-                Db.enum_name(values.get('AQI_accuracy')),
+                Database.enum_name(values.get('AQI_accuracy')),
 
                 values.get('illum_lux'),
                 values.get('white'),
@@ -71,12 +71,12 @@ class Database:
                 values.get('SPL_bands_dB_5'),
                 values.get('SPL_bands_dB_6'),
                 values.get('peak_amp_mPa'),
-                Db.enum_name(values.get('stable')),
+                Database.enum_name(values.get('stable')),
 
                 values.get('duty_cycle_pc'),
                 values.get('concentration'),
                 values.get('conc_unit'),
-                Db.enum_name(values.get('valid'))
+                Database.enum_name(values.get('valid'))
             ]
         )
 
