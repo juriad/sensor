@@ -5,6 +5,7 @@ class NumberFormat:
         self.dec = dec
 
     def read(self, data):
+        print(data)
         return self.read_int(data) + self.read_dec(data)
 
     def read_int(self, data):

@@ -7,7 +7,7 @@ class ReadData:
         self.ptr = 0
 
     def single(self, fmt: NumberFormat):
-        number = fmt.read(self.data[self.ptr:])
+        number = fmt.read(self.data[self.ptr:self.ptr + len(fmt)])
         self.ptr += len(fmt)
         return number
 
@@ -17,6 +17,8 @@ class ReadData:
         return clazz(value)
 
     def striped(self, fmt: NumberFormat, count: int):
+        print(self.data[self.ptr:])
+
         numbers = [
             fmt.read([
                 *self.data[self.ptr + i * fmt.int_bytes:fmt.int_bytes],
