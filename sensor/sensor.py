@@ -19,9 +19,9 @@ class Mode(Enum):
 
 
 class CycleInterval(Enum):
-    T_3_S: 0
-    T_100_S: 1
-    T_300_S: 2
+    T_3_S = 0
+    T_100_S = 1
+    T_300_S = 2
 
 
 class AQIValue(Enum):
