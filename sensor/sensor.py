@@ -337,8 +337,9 @@ class Sensor:
         if not self.is_ready():
             raise Exception("Not ready")
         data = self._get(AIR_QUALITY_DATA_READ, AIR_QUALITY_DATA_BYTES)
+        aqi = data.single(unsigned(2, 1))
         return {
-            'AQI': (aqi := data.single(unsigned(2, 1))),
+            'AQI': aqi,
             'AQI_value': AQIValue.interpret(aqi),
             'CO2e': data.single(unsigned(2, 1)),
             'bVOC': data.single(unsigned(2, 2)),
