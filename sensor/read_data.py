@@ -26,3 +26,6 @@ class ReadData:
         ]
         self.ptr += len(fmt) * count
         return numbers
+
+    def __str__(self):
+        return """{}: {}""".format(self.data, self.ptr)

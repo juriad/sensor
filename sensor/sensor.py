@@ -201,12 +201,14 @@ class Sensor:
             self._set(CYCLE_TIME_PERIOD_REG, unsigned(1), interval.value)
             self.interval = interval
         self._command(CYCLE_MODE_CMD)
+        self.mode = Mode.CYCLE
         GPIO.add_event_detect(self.ready_pin, GPIO.FALLING)
 
     def standby(self):
         if self.mode != Mode.STANDBY:
             GPIO.remove_event_detect(self.ready_pin)
             self._command(STANDBY_MODE_CMD)
+            self.mode = Mode.STANDBY
             self.wait_for_ready()
 
     # light interrupts
@@ -357,6 +359,7 @@ class Sensor:
         if not self.is_ready():
             raise Exception("Not ready")
         data = self._get(SOUND_DATA_READ, SOUND_DATA_BYTES)
+        print(data)
         return {
             'SPL_dBA': data.single(unsigned(1, 1)),
             **Sensor._read_sound_bands(data, flatten),
