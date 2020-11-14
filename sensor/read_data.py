@@ -17,12 +17,10 @@ class ReadData:
         return clazz(value)
 
     def striped(self, fmt: NumberFormat, count: int):
-        print(self.data[self.ptr:])
-
         numbers = [
             fmt.read([
-                *self.data[self.ptr + i * fmt.int_bytes:fmt.int_bytes],
-                *self.data[self.ptr + count * fmt.int_bytes + i * fmt.dec_bytes:fmt.dec_bytes]
+                *self.data[self.ptr + i * fmt.int_bytes:self.ptr + (i + 1) * fmt.int_bytes],
+                *self.data[self.ptr + count * fmt.int_bytes + i * fmt.dec_bytes:self.ptr + count * fmt.int_bytes + (i + 1) * fmt.dec_bytes]
             ])
             for i in range(count)
         ]
