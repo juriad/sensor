@@ -67,11 +67,9 @@ class ParticleValidity(Enum):
 
 
 class ParticleSensor(Enum):
-    def __new__(cls, value, unit):
-        obj = bytes.__new__(cls, [value])
-        obj._value_ = value
-        obj.unit = unit
-        return obj
+    def __init__(self, value, unit):
+        self._value_ = value
+        self.unit = unit
 
     PPD42 = (1, 'ppL')
     SDS011 = (2, 'ug/m3')
