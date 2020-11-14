@@ -40,9 +40,9 @@ class AQIValue(Enum):
 
 
 class AQIAccuracy(Enum):
-    INVALID = 0,
-    LOW = 1,
-    MEDIUM = 2,
+    INVALID = 0
+    LOW = 1
+    MEDIUM = 2
     HIGH = 3
 
 
@@ -57,12 +57,12 @@ class IntPolarity(Enum):
 
 
 class SoundStability(Enum):
-    UNSTABLE = 0,
+    UNSTABLE = 0
     STABLE = 1
 
 
 class ParticleValidity(Enum):
-    INVALID = 0,
+    INVALID = 0
     VALID = 1
 
 
